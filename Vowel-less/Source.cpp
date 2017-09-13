@@ -9,7 +9,9 @@ using namespace vowelless;
 
 int main()
 {
+	cout << "Welcome to Vowel-less!" << endl << endl;
 
+	TestCode();
 
 	return 0;
 }
