@@ -11,10 +11,10 @@ int main()
 {
 	cout << "Welcome to Vowel-less!" << endl << endl;
 
-	/*string userInput = UserInput();
+	string userInput = UserInput();
 	int userSelection = GroupSelector();
 	string newString = Eraser(userInput, userSelection);
-	cout << newString << endl;*/
+	cout << newString << endl;
 	
 	TestCode();
 
