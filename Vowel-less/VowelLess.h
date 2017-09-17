@@ -100,6 +100,13 @@ namespace vowelless
 	string CustomEraser(string userInput);
 
 	/*
+	Prompts the user if they would like to run the program again
+
+	@return isAgain returns true if the user enter 'y'
+	*/
+	bool IsAgain();
+
+	/*
 	Contains code to test functions
 	*/
 	void TestCode();

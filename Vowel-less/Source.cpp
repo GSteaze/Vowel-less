@@ -10,13 +10,18 @@ using namespace vowelless;
 int main()
 {
 	cout << "Welcome to Vowel-less!" << endl << endl;
+	bool isAgain = false;
+	do {
+		string userInput = UserInput();
+		int userSelection = GroupSelector();
+		string newString = Eraser(userInput, userSelection);
+		cout << "The formatted string : " << newString << endl << endl;
 
-	string userInput = UserInput();
-	int userSelection = GroupSelector();
-	string newString = Eraser(userInput, userSelection);
-	cout << newString << endl;
-	
-	TestCode();
+		isAgain = IsAgain();
+	} while (isAgain);
+
+
+	//TestCode();
 
 	return 0;
 }

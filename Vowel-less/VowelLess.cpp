@@ -6,6 +6,8 @@
 
 using namespace std;
 
+const int kEndOfLine = 1024;
+
 namespace vowelless
 {
 	string UserInput() {
@@ -73,25 +75,6 @@ namespace vowelless
 		default: cout << "Invalid Selection." << endl;
 		}
 
-		/*if (userSelection == 1) {
-			return editedString = VowelEraser(userInput);
-		}
-		else if (userSelection == 2) {
-			return editedString = ConsonantEraser(userInput);
-		}
-		else if (userSelection == 3) {
-			return editedString = DigitEraser(userInput);
-		}
-		else if (userSelection == 4) {
-			return editedString = PunctuationEraser(userInput);
-		}
-		else if (userSelection == 5) {
-			return editedString = CustomEraser(userInput);
-		}
-		else {
-			cout << "Invalid Selection." << endl;
-		}*/
-
 		return editedString;
 	}
 
@@ -152,6 +135,9 @@ namespace vowelless
 		string removedConsonants = "";
 		for (int i = 0; i < userInput.length(); i++) {
 			if (!IsConsonant(userInput[i])) {
+				removedConsonants.append(userInput, i, 1);
+			}
+			else if (userInput[i] == ' ') {
 				removedConsonants.append(userInput, i, 1);
 			}
 		}
@@ -215,6 +201,37 @@ namespace vowelless
 			}
 		}
 		return removedCustom;
+	}
+
+	bool IsAgain() {
+		bool isAgain = false;
+		char userResponse = ' ';
+
+		cout << "Would you like run Vowel-less again?" << endl
+			<< "Please enter 'y' for Yes or 'n' for No.  : " << endl;
+		bool isValid = false;
+		int counter = 0;
+		while (!isValid && (counter < 10)) {
+			cin >> userResponse;
+			if (userResponse == 'y') {
+				isValid = true;
+				return true;
+			}
+			else if (userResponse == 'n') {
+				isValid = true;
+				return false;
+			}
+			else if (counter == 9) {
+				cout << endl << "Maximum number of attempts reached.  Program will now close." << endl;
+			}
+			else {
+				cin.clear();
+				cin.ignore(kEndOfLine, '\n');
+				cout << "Response must be either 'y' or 'n'. Please try again : ";
+			}
+			counter++;
+		}
+
 	}
 
 	void TestCode() {
